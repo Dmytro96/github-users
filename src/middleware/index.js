@@ -33,11 +33,12 @@ const apiMiddleware = store => next => action => {
             return next({type: SUCCESS, serverResponse: data.data, ...rest})
         })
         .catch(e => {
-            // const text = e.response.data && e.response.data.non_field_errors && e.response.data.non_field_errors[0]
+            const message = e.response.data.message;
+            alert(message);
             return next({type: FAILURE, serverResponse: {
                 status: e.response.status,
+                message,
                 ...rest
-                // text
             }});
         });
 
@@ -46,6 +47,6 @@ const apiMiddleware = store => next => action => {
     }
 };
 
-const middlewares = [apiMiddleware, __DEV__ && logger];
+const middlewares = [apiMiddleware, __DEV__ && logger].filter(Boolean);
 
 export default applyMiddleware(...middlewares);
