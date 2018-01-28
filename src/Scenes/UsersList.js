@@ -88,7 +88,7 @@ class UsersList extends PureComponent {
                             activeOpacity={0.7}
                         >
                             <Image
-                                source={{url: item.avatar_url}}
+                                source={{uri: item.avatar_url}}
                                 resizeMode="contain"
                                 style={style.imageStyle}
                             />
@@ -121,7 +121,7 @@ class UsersList extends PureComponent {
                                 </Text>
                             </TouchableOpacity>
                             <Image
-                                source={{url: currentOwnerFollowers.avatar_url}}
+                                source={{uri: currentOwnerFollowers.avatar_url}}
                                 resizeMode="contain"
                                 style={style.imageStyle}
                             />
